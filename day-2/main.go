@@ -23,9 +23,9 @@ func part1(red int, green int, blue int) {
 
 	total := 0
 	for _, line := range lines {
-        if line == "" {
-            continue
-        }
+		if line == "" {
+			continue
+		}
 
 		valid := true
 		split := strings.Split(line, ":")
@@ -41,7 +41,7 @@ func part1(red int, green int, blue int) {
 			r, g, b := getCounts(cubes)
 			if r > red || g > green || b > blue {
 				valid = false
-                break
+				break
 			}
 		}
 
@@ -64,9 +64,9 @@ func part2() {
 
 	total := 0
 	for _, line := range lines {
-        if line == "" {
-            continue
-        }
+		if line == "" {
+			continue
+		}
 
 		split := strings.Split(line, ":")
 		_, err := strconv.Atoi(strings.Replace(split[0], "Game ", "", 1))
@@ -75,28 +75,28 @@ func part2() {
 			continue
 		}
 
-        rMax := 0
-        gMax := 0
-        bMax := 0
+		rMax := 0
+		gMax := 0
+		bMax := 0
 
 		sets := strings.Split(split[1], ";")
 		for _, set := range sets {
 			cubes := strings.Split(set, ",")
 			r, g, b := getCounts(cubes)
-            if r > rMax {
-                rMax = r
-            }
+			if r > rMax {
+				rMax = r
+			}
 
-            if g > gMax {
-                gMax = g
-            }
+			if g > gMax {
+				gMax = g
+			}
 
-            if b > bMax {
-                bMax = b
-            }
+			if b > bMax {
+				bMax = b
+			}
 		}
 
-        total += rMax * gMax * bMax
+		total += rMax * gMax * bMax
 	}
 
 	log.Printf("part two total: %d\n", total)

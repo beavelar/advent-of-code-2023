@@ -13,8 +13,8 @@ var numbers map[string]int
 func main() {
 	numbers = map[string]int{"one": 1, "two": 2, "three": 3, "four": 4, "five": 5, "six": 6, "seven": 7, "eight": 8, "nine": 9}
 
-    part1()
-    part2(numbers)
+	part1()
+	part2(numbers)
 }
 
 func part1() {
@@ -30,13 +30,13 @@ func part1() {
 	for _, line := range split {
 		left := 0
 		right := 0
-        reset := true
+		reset := true
 
 		for _, rChar := range line {
 			char := string(rChar)
 			num, err := strconv.Atoi(char)
 			if err != nil {
-                continue
+				continue
 			}
 
 			if reset {
@@ -79,18 +79,18 @@ func part2(numbers map[string]int) {
 	for _, line := range split {
 		left := 0
 		right := 0
-        reset := true
+		reset := true
 
 		for idx, rChar := range line {
 			char := string(rChar)
 			num, err := strconv.Atoi(char)
 			if err != nil {
-                dig, valid := strToInt(line[idx:], numbers)
-                if valid {
-                    num = dig
-                } else {
-                    continue
-                }
+				dig, valid := strToInt(line[idx:], numbers)
+				if valid {
+					num = dig
+				} else {
+					continue
+				}
 			}
 
 			if reset {
